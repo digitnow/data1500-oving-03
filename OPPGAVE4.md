@@ -50,7 +50,7 @@ WHERE student_id = (
 Husk `docker-compose exec postgres` foran `psql`-kommandoen, hvis kommandoen utføres fra vertsmaskinen.
 
 ```bash
-psql -h localhost -U admin -d data1500_db
+docker-compose exec postgres psql -U admin -d data1500_db
 # Password: admin123
 ```
 
@@ -149,7 +149,7 @@ SELECT * FROM pg_policies WHERE tablename = 'emneregistreringer';
 **Test 1: Logg inn som student_1**
 
 ```bash
-psql -h localhost -U student_1 -d data1500_db
+docker-compose exec postgres psql -U student_1 -d data1500_db
 # Password: student123
 ```
 
@@ -169,7 +169,7 @@ SELECT * FROM emneregistreringer WHERE student_id = 2;
 **Test 2: Logg inn som student_2**
 
 ```bash
-psql -h localhost -U student_2 -d data1500_db
+docker-compose exec postgres psql -U student_2 -d data1500_db
 # Password: student123
 ```
 
@@ -185,7 +185,7 @@ SELECT * FROM emneregistreringer;
 **Test 3: Logg inn som student_3**
 
 ```bash
-psql -h localhost -U student_3 -d data1500_db
+docker-compose exec postgres psql -U student_3 -d data1500_db
 # Password: student123
 ```
 
@@ -201,7 +201,7 @@ SELECT * FROM emneregistreringer;
 **Test 4: Logg inn som admin (skal se alle)**
 
 ```bash
-psql -h localhost -U admin -d data1500_db
+docker-compose exec postgres psql -U admin -d data1500_db
 # Password: admin123
 ```
 
@@ -223,7 +223,7 @@ SELECT * FROM emneregistreringer;
 **Koble til som admin:**
 
 ```bash
-psql -h localhost -U admin -d data1500_db
+docker-compose exec postgres psql -U admin -d data1500_db
 # Password: admin123
 ```
 
@@ -255,7 +255,7 @@ REVOKE SELECT ON studenter FROM student_role;
 **Test som student:**
 
 ```bash
-psql -h localhost -U student_1 -d data1500_db
+docker-compose exec postgres psql -U student_1 -d data1500_db
 # Password: student123
 ```
 
@@ -286,7 +286,7 @@ SELECT epost FROM student_info_limited;
 **Koble til som admin:**
 
 ```bash
-psql -h localhost -U admin -d data1500_db
+pdocker-compose exec postgres sql -U admin -d data1500_db
 # Password: admin123
 ```
 
@@ -326,7 +326,7 @@ CREATE POLICY foreleser_update_grades ON emneregistreringer
 **Test som foreleser:**
 
 ```bash
-psql -h localhost -U foreleser_1 -d data1500_db
+docker-compose exec postgres psql -U foreleser_1 -d data1500_db
 # Password: foreleser123
 ```
 

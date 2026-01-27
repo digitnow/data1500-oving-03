@@ -8,43 +8,19 @@ Skriv dine svar på refleksjonsspørsmålene fra hver oppgave her.
 
 ### Spørsmål 1: Hva er fordelen med å bruke Docker i stedet for å installere PostgreSQL direkte på maskinen?
 
-**Ditt svar:**
-
-[Skriv ditt svar her]
-
----
+Fordelen med Docker er at du kan jobbe i PostgreSQL i en isolert container, som ikke påvirker resten av systemet.
 
 ### Spørsmål 2: Hva betyr "persistent volum" i docker-compose.yml? Hvorfor er det viktig?
-
-**Ditt svar:**
-
-[Skriv ditt svar her]
-
----
+Persistent volum betyr at det lagres utenfor containeren slik at man kan gjennopptå aktiviteten. 
 
 ### Spørsmål 3: Hva skjer når du kjører `docker-compose down`? Mister du dataene?
-
-**Ditt svar:**
-
-[Skriv ditt svar her]
-
----
+Med docker-compose down avslutter du gjeldende container. Dataen mistes kun hvis du sletter volumet. 
 
 ### Spørsmål 4: Forklar hva som skjer når du kjører `docker-compose up -d` første gang vs. andre gang.
-
-**Ditt svar:**
-
-[Skriv ditt svar her]
-
----
+Med docker-compose up -d åpner du en container med et volum. Ved andre gang åpner du et container med det samme volumet. 
 
 ### Spørsmål 5: Hvordan ville du delt docker-compose.yml-filen med en annen student? Hvilke sikkerhetshensyn må du ta?
-
-**Ditt svar:**
-
-[Skriv ditt svar her]
-
----
+Jeg ville ha sendt docker-compose.yml filen direkte til studenten. 
 
 ## Oppgave 2: SQL-spørringer og databaseskjema
 

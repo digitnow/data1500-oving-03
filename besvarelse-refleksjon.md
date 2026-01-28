@@ -10,7 +10,12 @@ Skriv dine svar på refleksjonsspørsmålene fra hver oppgave her.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Ved å bruke en konteinerisert applikasjon så brukes en fastlåst tilstand med alle avhengigheter uavhengig av underliggende
+operativsystem. Dette gjør følgende:
+- Det skaper reproduserbarhet og kan kjøres av alle som har installert Docker (evt. containerd eller lignende).
+- Det skaper mulighet for å rive ned samt spinne opp samme applikasjon igjen for å nullstille en tilstand.
+- Det skaper mulighet for å dele et Docker images via Docker registries (eks. Azure Container Registry, docker.io) som
+andre kan konsumere og reprodusere det eksakt samme oppsettet.
 
 ---
 
@@ -18,7 +23,17 @@ Skriv dine svar på refleksjonsspørsmålene fra hver oppgave her.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Docker images er per definisjon stateless. Dette betyr at dersom filer opprettes i konteineren
+og konteineren restartes av en vilkårlig årsak, så er filsystemet tilbake til opprinnelig tilstand. Det vil
+si at filene du har opprettet er borte.
+
+For å løse dette er det mulig med persistent lagring via volumer. Det er flere typer volumer og avhenger av
+eksempelvis om enkelte plugins er installert. Det enkleste formatet for volum, og som er innebygget i Docker Compose,
+er mounting av lokale filstier inn i konteineren. Dersom man har en disk på maskinen som er mountet
+opp på /data/postgres med 100G data og mounter denne inn på /var/lib/postgresql/data i konteineren, så vil dette være
+tilgjengelig for Postgres. 
+
+Andre alternativer for volumer er eksempelvis NFS eller S3.
 
 ---
 
@@ -26,7 +41,7 @@ Skriv dine svar på refleksjonsspørsmålene fra hver oppgave her.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Kommandoen river ned konteinerne. Dersom det ikke er lagret på et volum, så ja, da mister man dataen sin.
 
 ---
 
@@ -34,7 +49,13 @@ Skriv dine svar på refleksjonsspørsmålene fra hver oppgave her.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Første gang spinnes opp konteinerne i bakgrunnen (ref -d for detached mode). Dette gjør at man slipper å se
+standard ut logger og kan navigere fritt videre i terminalen i stedet for å åpne et nytt vindu.
+
+Dersom imaget ikke er pullet / finnes i den lokale registryet, så vil imaget hentes med docker pull.
+
+Andre gang man kjører finnes imaget og det pulles ikke. Konteineren vil ikke gjøre noe som helst / lage konteineren på nytt,
+dersom ingen instillinger har endret seg.
 
 ---
 
@@ -42,7 +63,16 @@ Skriv dine svar på refleksjonsspørsmålene fra hver oppgave her.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Brukernavn og passord er i klartekst. Det enkleste er å lage en `.env.example` fil med
+
+```text
+POSTGRES_USER='...'
+POSTGRES_PASSWORD='...'
+POSTGRES_DB: data1500_db
+PGDATA: /var/lib/postgresql/data/pgdata
+```
+
+og heller benyttet `docker compose --env-file .env up -d` og sendt med docker compose filen samt .env.example.
 
 ---
 

@@ -123,7 +123,8 @@ raskere og dermed viktig for ytelse.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Anta at det er ekstremt mange studenter og spørringen går sakte kunne man satt opp en indeks på student id
+og gjort et filter på denne variabelen.
 
 ---
 

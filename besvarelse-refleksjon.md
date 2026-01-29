@@ -133,7 +133,8 @@ raskere og dermed viktig for ytelse.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Det handler om å ikke gi mer rettigheter enn nødvendig. Dette er viktig for å minimere angrepsvektoren
+dersom uvedkommende får tak i en rolle i databasen.
 
 ---
 
@@ -141,7 +142,9 @@ raskere og dermed viktig for ytelse.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Roller er et bredere konsept enn brukere og kan delegeres ut til en bruker. Eksempelvis er det vanlig med 
+`readonly` eller `readwrite` roller hvor rollen får rettighetene til å gjøre en operasjon. Roller blir deretter
+delegert videre til brukere. Dette gjør at databaseadministrasjon skalerer bedre.
 
 ---
 
@@ -149,7 +152,8 @@ raskere og dermed viktig for ytelse.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+I prinsippet svart over. Det er mer effektivt å dele ut predefinerte roller samt er det enklere å holde kontroll over
+rettighetene til brukere om kun disse predefinerte rollene blir brukt.
 
 ---
 
@@ -157,7 +161,8 @@ raskere og dermed viktig for ytelse.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Dette kan gi tilgang til å slette objekter som databaser, tabeller, indekser og lignende. Det kan ha store konsekvenser
+dersom uvedkommende får mulighet til å ta over denne brukeren i databasen. 
 
 ---
 
@@ -165,7 +170,9 @@ raskere og dermed viktig for ytelse.
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Anta at en bruker logger inn med sitt eget brukernavn og passord. Denne brukeren har også en unik identifikator i form 
+av en inkrementerende ID, UUID eller lignende. Deretter ville jeg laget et view som viser kun rader hvor student 
+identifikatoren matcher identifikatoren i raden.
 
 ---
 

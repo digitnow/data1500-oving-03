@@ -82,7 +82,9 @@ og heller benyttet `docker compose --env-file .env up -d` og sendt med docker co
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Inner join tar snittet av datasettet slik at og fjerner rader som ikke tilfredsstiller betingelsen.
+Left join bevarer datasettet som mottar join'en og fyller inn med `NULL` der betingelsen ikke treffer.
+Dersom man ønsker å filtrere bort observasjoner som ikke treffer betingelsen så brukes inner join.
 
 ---
 
@@ -90,7 +92,11 @@ og heller benyttet `docker compose --env-file .env up -d` og sendt med docker co
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+Foreign keys er betingelser som sørger for konsistens mellom tabeller. Eksempelvis hvis du har en liste med flyplasser
+i en tabell og avganger i en annen tabell, kan foreign keys sørge for at det ikke er mulig å opprette en avgang fra
+en flyplass som ikke eksisterer.
+
+Hvis du prøver å slette et program som har en student så vil det feile grunnet referanse i en annen tabell.
 
 ---
 
@@ -98,7 +104,8 @@ og heller benyttet `docker compose --env-file .env up -d` og sendt med docker co
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+`GROUP BY` grupperer rader basert på eksempelvis navn og det er nødvendig med aggregatfunksjoner for
+at å vite hvoradan resultatet skal produseres / hvilke rader som skal slås sammen.
 
 ---
 
@@ -106,7 +113,9 @@ og heller benyttet `docker compose --env-file .env up -d` og sendt med docker co
 
 **Ditt svar:**
 
-[Skriv ditt svar her]
+En indeks lager en ny datastruktur som kan inneholde enkelte av kolonnene av det opprinnelige tabellen. Det
+er dermed ikke en duplisering av det opprinnelige datasettet. Årsaken er for å filtrere og gjøre søk
+raskere og dermed viktig for ytelse.
 
 ---
 
